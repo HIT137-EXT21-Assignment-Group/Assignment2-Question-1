@@ -43,26 +43,26 @@ def encrypt_file(initial_data, path):
     for char in initial_data:
         if char.isalpha():
             if char in enc_lower1:
-                index = find_letter(enc_lower1,char)                #encrypt lowercase a to n method
+                index = find_letter(enc_lower1,char)                #encrypt lowercase a to m method
                 if (index + (s1*s2)) >= 12:
                     new_char = "m"
                 else:
                     new_char = enc_lower1[index + (s1 *s2)]
             if char in enc_lower2:
-                index = find_letter(enc_lower2,char)                #encrypt uppercase A to N method
+                index = find_letter(enc_lower2,char)                #encrypt uppercase A to M method
                                        
                 if (index - (s1+s2)) < 0:
                     new_char = "A"
                 else:
                     new_char = enc_lower2[index - (s1+s2)]
             if char in enc_upper1:   
-                index = find_letter(enc_upper1,char)                #encrypt lowercase m to z method
+                index = find_letter(enc_upper1,char)                #encrypt lowercase n to z method
                 if (index -s1) <= 0:
                     new_char = "n"
                 else:
                     new_char = enc_upper1[index-s1]            
             if char in enc_upper2:  
-                index = find_letter(enc_upper2,char)                 #encrypt uppercase M to Z method
+                index = find_letter(enc_upper2,char)                 #encrypt uppercase N to Z method
                 if (index + (s2*s2)) >= 12:
                     new_char = "Z"
                 else:
