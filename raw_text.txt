@@ -1,0 +1,8 @@
+Raw text will be
+encrypted 2 ! ! !
+The text can then be
+decrypted #$%    great!!!
+
+This file is called raw_text.txt
+
+******&&&@@@******* test 
