@@ -9,9 +9,9 @@ def main():
     print(f'_'*15,'END','_'*15)                 #formatting to claify file text boundries
     path = file_path.replace('raw_text','write_file') # alter read path to write path
     print("file path :",path)                   #print file path for write
-    print(f'_'*14,'START','_'*14)               #formatting to claify file text boundries 
+    print(f'_'*14,'START','_'*64)               #formatting to claify file text boundries 
     encrypt_lst = encrypt_file(initial_data, path)            
-    
+    print(f'_'*85)
     with open(path,'w') as write_file:
         for item in encrypt_lst:
             write_file.write(f"{item}")
