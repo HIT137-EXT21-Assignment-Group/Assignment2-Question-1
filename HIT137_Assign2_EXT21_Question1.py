@@ -10,14 +10,16 @@ def main():
     path = file_path.replace('raw_text','write_file') # alter read path to write path
     print("file path :",path)                   #print file path for write
     print(f'_'*14,'START','_'*64)               #formatting to claify file text boundries 
-    encrypt_lst = encrypt_file(initial_data, path)            
+    encrypt_lst, index_list = encrypt_file(initial_data, path)            
     print(f'_'*85)
     with open(path,'w') as write_file:
         for item in encrypt_lst:
             write_file.write(f"{item}")
     with open(path,'r') as write_file:
         out_put_data = write_file.read()
-    print(out_put_data)                                                  
+    print(out_put_data)  
+    print(f'_'*35)
+    print(index_list)                                                
     print(f'_'*15,'END','_'*15) 
 def encrypt_file(initial_data, path):
     def find_letter(list,letter):
@@ -41,6 +43,7 @@ def encrypt_file(initial_data, path):
     full_alpha_upper = [chr(i) for i in range(ord('A'), ord('Z') + 1)]  #create a string of letters from A to Z
     enc_upper2 = [chr(i4) for i4 in range(ord('N'), ord('Z') + 1)]      #create a string of letters from N to Z
     
+    index_list = []
     encrypted_string = []                                               #initialise variable to hold the results
     for char in initial_data:                                           #variable holds check value from input
         if char.isalpha():                                              #check for aphabetical character
@@ -69,12 +72,13 @@ def encrypt_file(initial_data, path):
                     new_char = "Z"
                 else:
                     new_char = full_alpha_upper[index +(s2*s2)]  
-              
+            next_index = index  
         else:
-            new_char = char                                             #check value is not alphabetical save value
-        encrypted_string.append(new_char)                               #add current vale to end of string
-    return encrypted_string                                             #return encrypted string
+            new_char = char 
+            next_index = char                                          #check value is not alphabetical save value
+        encrypted_string.append(new_char)
+        index_list.append(next_index)                               #add current vale to end of string
+    return encrypted_string , index_list                                            #return encrypted string
     
                                                              
-main()
-  
+main()  
