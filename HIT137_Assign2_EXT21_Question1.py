@@ -75,10 +75,10 @@ def encrypt_file(initial_data, path):                             #def to encryp
                     new_char = full_alpha_upper[index +(s2*s2)]  
             next_index = index                                      # current index value 
         else:
-            new_char = char                                         #check value is not alphabetical save value
-            next_index = char                                       #save alphabetical index value or other char
+            new_char = char                                         #check value is not alphabetical and save value
+            next_index = char                                       #save alphabetical index value or other character
         encrypted_string.append(new_char)                           #add encrypted value to end of string
-        index_list.append(next_index)                               #add current index value or other char to string
+        index_list.append(next_index)                               #add current index value or other character to string
     return encrypted_string , index_list                            #return encrypted string
     
                                                              
