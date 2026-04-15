@@ -13,7 +13,7 @@
 def main():
                                                                   #input file path aquisition    
     file_path = str(input("Enter file path :")) 
-    print(f'_'*14,'START','_'*103)                                 #display formatting to claify file text boundries
+    print(f'_'*14,'START','_'*103)                                #display formatting to claify file text boundries
     
     with open(file_path,'r') as input_file:                       #open file from file path to read as input_file
         initial_data = input_file.read()                          #create copy of file for encryption 
