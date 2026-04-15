@@ -1,18 +1,19 @@
 # Simple Encryption and Decryption Progam
-#==============================================================================================================================================
+#==================================================================================================================================
 # This progam will read a text file from a file path entered by the user. 
-# The program will display the file contents then prompt the user for two integer values which will be used to inform the encryption mechanic. 
+# The program will display the file contents then prompt the user for two integer values which will be used to inform the 
+# encryption mechanic. 
 # Once the encrytption is completed a two outputs will be produced.
-# The encrypted file will be created and an array containing all the no alphabetic characters and the index values from the input file will be 
-# returned to the main program. 
+# The encrypted file will be created and an array containing all the no alphabetic characters and the index values from the input  
+# file will be returned to the main program. 
 # The encrypted file will the be used as input for the decryption mechanic.
 # Once the decryption mechanic is complete the resulting file will created and compared to the initial input file.
 # A message will be printed to screen indicting the sucess or failure of the decrytion.
-#===============================================================================================================================================
+#=================================================================================================================================
 def main():
                                                                   #input file path aquisition    
     file_path = str(input("Enter file path :")) 
-    print(f'_'*14,'START','_'*14)                                 #display formatting to claify file text boundries
+    print(f'_'*14,'START','_'*103)                                 #display formatting to claify file text boundries
     
     with open(file_path,'r') as input_file:                       #open file from file path to read as input_file
         initial_data = input_file.read()                          #create copy of file for encryption 
@@ -29,9 +30,9 @@ def main():
     with open(path,'r') as write_file:                            #open file for read
         out_put_data = write_file.read()                          #read file
     print(out_put_data)                                           #print encrypted file                             
-    print(f'_'*35)                                                #display formatting to claify file text boundries
+    print(f'_'*124)                                                #display formatting to claify file text boundries
     print(index_list)                                             #print array of index values before encryption for decryption                    
-    print(f'_'*15,'END','_'*15)                                   #display formatting to claify file text boundries
+    print(f'_'*15,'END','_'*104)                                   #display formatting to claify file text boundries
 
 def encrypt_file(initial_data, path):                             #def to encrypt a file shifting letter values
     def find_letter(list,letter):                                 #def to find the index of an alpha char
