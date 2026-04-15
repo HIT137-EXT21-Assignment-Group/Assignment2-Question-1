@@ -30,9 +30,9 @@ def main():
     with open(path,'r') as write_file:                            #open file for read
         out_put_data = write_file.read()                          #read file
     print(out_put_data)                                           #print encrypted file                             
-    print(f'_'*124)                                                #display formatting to claify file text boundries
+    print(f'_'*124)                                               #display formatting to claify file text boundries
     print(index_list)                                             #print array of index values before encryption for decryption                    
-    print(f'_'*15,'END','_'*104)                                   #display formatting to claify file text boundries
+    print(f'_'*15,'END','_'*104)                                  #display formatting to claify file text boundries
 
 def encrypt_file(initial_data, path):                             #def to encrypt a file shifting letter values
     def find_letter(list,letter):                                 #def to find the index of an alpha char
