@@ -1,10 +1,14 @@
 # Simple Encryption and Decryption Progam
-#  This progam will read a text file from a file path entered by the user. The program will display the file contents then prompt the user 
-# for two integer values which will be used to inform the encryption mechanic. Once the encrytption is completed a two outputs will be produced.
+#==============================================================================================================================================
+# This progam will read a text file from a file path entered by the user. 
+# The program will display the file contents then prompt the user for two integer values which will be used to inform the encryption mechanic. 
+# Once the encrytption is completed a two outputs will be produced.
 # The encrypted file will be created and an array containing all the no alphabetic characters and the index values from the input file will be 
-# returned to the main program. The encrypted file will the be used as input for the decryption mechanic.
-# once the decryption mechanic is complete the resulting file will created and compared to the initial input file.
+# returned to the main program. 
+# The encrypted file will the be used as input for the decryption mechanic.
+# Once the decryption mechanic is complete the resulting file will created and compared to the initial input file.
 # A message will be printed to screen indicting the sucess or failure of the decrytion.
+#===============================================================================================================================================
 def main():
                                                                   #input file path aquisition    
     file_path = str(input("Enter file path :")) 
