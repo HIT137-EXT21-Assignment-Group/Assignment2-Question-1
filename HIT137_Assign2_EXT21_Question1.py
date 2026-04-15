@@ -12,13 +12,13 @@
 def main():
                                                                   #input file path aquisition    
     file_path = str(input("Enter file path :")) 
-    print(f'_'*14,'START','_'*14)                                 #formatting to claify file text boundries
+    print(f'_'*14,'START','_'*14)                                 #display formatting to claify file text boundries
     
     with open(file_path,'r') as input_file:                       #open file from file path to read as input_file
         initial_data = input_file.read()                          #create copy of file for encryption 
         print(initial_data)
     print(f'_'*15,'END','_'*15)                                   #formatting to claify file text boundries
-    path = file_path.replace('raw_text','write_file')             # alter read path to write path
+    path = file_path.replace('raw_text','write_file')             #alter read path to write path
     print("file path :",path)                                     #print file path for write
     print(f'_'*14,'START','_'*64)                                 #formatting to claify file text boundries 
     encrypt_lst, index_list = encrypt_file(initial_data, path)    #call encrypt function and return two values            
