@@ -1,36 +1,36 @@
   def main():
-                                                #input file path aquisition    
+                                                                  #input file path aquisition    
     file_path = str(input("Enter file path :")) 
-    print(f'_'*14,'START','_'*14)               #formatting to claify file text boundries
+    print(f'_'*14,'START','_'*14)                                 #formatting to claify file text boundries
     
-    with open(file_path,'r') as input_file:     #open file from file path to read as input_file
-        initial_data = input_file.read()        #create copy of file for encryption 
+    with open(file_path,'r') as input_file:                       #open file from file path to read as input_file
+        initial_data = input_file.read()                          #create copy of file for encryption 
         print(initial_data)
-    print(f'_'*15,'END','_'*15)                 #formatting to claify file text boundries
-    path = file_path.replace('raw_text','write_file') # alter read path to write path
-    print("file path :",path)                   #print file path for write
-    print(f'_'*14,'START','_'*64)               #formatting to claify file text boundries 
-    encrypt_lst, index_list = encrypt_file(initial_data, path)  #call encrypt function and return two values            
-    print(f'_'*85)                              #formatting to claify file text boundries
-    with open(path,'w') as write_file:          #open write file for write 
-        for item in encrypt_lst:                #interation to write file
+    print(f'_'*15,'END','_'*15)                                   #formatting to claify file text boundries
+    path = file_path.replace('raw_text','write_file')             # alter read path to write path
+    print("file path :",path)                                     #print file path for write
+    print(f'_'*14,'START','_'*64)                                 #formatting to claify file text boundries 
+    encrypt_lst, index_list = encrypt_file(initial_data, path)    #call encrypt function and return two values            
+    print(f'_'*85)                                                #formatting to claify file text boundries
+    with open(path,'w') as write_file:                            #open write file for write 
+        for item in encrypt_lst:                                  #interation to write file
             write_file.write(f"{item}")
-    with open(path,'r') as write_file:          #open file for read
-        out_put_data = write_file.read()        #read file
-    print(out_put_data)                         #print encrypted file                             
-    print(f'_'*35)                              #formatting to claify file text boundries
-    print(index_list)                           #print array of index values before encryption                     
-    print(f'_'*15,'END','_'*15)                 #formatting to claify file text boundries
+    with open(path,'r') as write_file:                            #open file for read
+        out_put_data = write_file.read()                          #read file
+    print(out_put_data)                                           #print encrypted file                             
+    print(f'_'*35)                                                #formatting to claify file text boundries
+    print(index_list)                                             #print array of index values before encryption                     
+    print(f'_'*15,'END','_'*15)                                   #formatting to claify file text boundries
 
-def encrypt_file(initial_data, path):           #def to encrypt a file shifting letter values
-    def find_letter(list,letter):               #def to find the index of an alpha char
+def encrypt_file(initial_data, path):                             #def to encrypt a file shifting letter values
+    def find_letter(list,letter):                                 #def to find the index of an alpha char
         for i in range(len(list)):
             if letter == list[i]:
                 index_letter = i
         return index_letter
-    s1 = 14                                     #initialise s1 variable for false condition
-    s2 = 14                                     #initialise s2 variable for false condition
-    while not(s1 <= 12 and s2 <=12):            #interation to input shift values for encrytion mechanic
+    s1 = 14                                                     #initialise s1 variable for false condition
+    s2 = 14                                                     #initialise s2 variable for false condition
+    while not(s1 <= 12 and s2 <=12):                            #interation to input shift values for encrytion mechanic
         s1 = int(input("Enter the first amount of alphabetical letter shifts for this encryption :"))
         if not(s1 <=12) or s1 < 0:
             print("Error - Out of shift range enter a number between 1 and 12")
