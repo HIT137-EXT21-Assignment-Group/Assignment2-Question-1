@@ -18,7 +18,7 @@
 # A message will be printed to screen indicting the sucess or failure of the decrytion.
 #=================================================================================================================================
 def main():
-                                                                   #input file path aquisition iterates while not N or usable file   
+                                                                   #input file path aquisition iterates while not N or no file   
     while True:
         file_path = str(input("Enter file path (N to end) :")) 
         if file_path == 'N':
