@@ -76,7 +76,7 @@ def encrypt_file(initial_data, path):                             #def to encryp
                 else:
                     new_char = full_alpha_lower[index + (s1 *s2)]
             if char in enc_lower2:                                      #check letter is in range A to M
-                index = find_letter(full_alpha_upper,char)                #encrypt uppercase A to N method
+                index = find_letter(full_alpha_upper,char)                #encrypt uppercase A to M method
                                        
                 if (index - (s1+s2)) < 0:
                     new_char = "A"
@@ -89,7 +89,7 @@ def encrypt_file(initial_data, path):                             #def to encryp
                 else:
                     new_char = full_alpha_lower[index-s1]            
             if char in enc_upper2:                                      #check letter is in range N to Z
-                index = find_letter(full_alpha_upper,char)                 #encrypt uppercase M to Z method
+                index = find_letter(full_alpha_upper,char)                 #encrypt uppercase N to Z method
                 if (index + (s2*s2)) >= 25:
                     new_char = "Z"
                 else:
