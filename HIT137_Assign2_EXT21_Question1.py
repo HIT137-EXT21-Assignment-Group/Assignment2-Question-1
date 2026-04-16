@@ -14,8 +14,9 @@
 # file will be returned to the main program. 
 
 # The encrypted file will the be used as input for the decryption mechanic.
-# Once the decryption mechanic is complete the resulting file will created and compared to the initial input file.
+# Once the decryption mechanic is complete the resulting file will be created and compared to the initial input file.
 # A message will be printed to screen indicting the sucess or failure of the decrytion.
+# The program will then END
 #=================================================================================================================================
 def main():
                                                                    #input file path aquisition iterates while not N or no file   
