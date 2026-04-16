@@ -21,7 +21,7 @@
 # Author        : Richard Larsen
 # Student number: S398988
 # Author        :
-# Subject       :
+# Student number:
 #=================================================================================================================================
 def main():
                                                                    #input file path aquisition iterates while not N or no file   
