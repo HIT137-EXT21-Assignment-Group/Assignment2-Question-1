@@ -18,13 +18,21 @@
 # A message will be printed to screen indicting the sucess or failure of the decrytion.
 #=================================================================================================================================
 def main():
-                                                                  #input file path aquisition    
-    file_path = str(input("Enter file path :")) 
+                                                                   #input file path aquisition iterates while not N or usable file   
+    while True:
+        file_path = str(input("Enter file path (N to end) :")) 
+        if file_path == 'N':
+            break
+        try:
+            with open(file_path,'r') as input_file:                #open file from file path to read as input_file
+                initial_data = input_file.read() 
+                break
+        except FileNotFoundError:
+            print("Invalid path ---> Enter valid path <---")    
     print(f'_'*14,'START','_'*103)                                 #display formatting to claify file text boundries
     
-    with open(file_path,'r') as input_file:                       #open file from file path to read as input_file
-        initial_data = input_file.read()                          #create copy of file for encryption 
-        print(initial_data)
+                            #create copy of file for encryption 
+    print(initial_data)
     print(f'_'*15,'END','_'*15)                                   #formatting to claify file text boundries
     path = file_path.replace('raw_text','write_file')             #alter read path to write path
     print("file path :",path)                                     #print file path for write
