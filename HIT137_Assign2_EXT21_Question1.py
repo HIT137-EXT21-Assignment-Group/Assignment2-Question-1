@@ -2,10 +2,17 @@
 #==================================================================================================================================
 # This progam will read a text file from a file path entered by the user. 
 # The program will display the file contents then prompt the user for two integer values which will be used to inform the 
-# encryption mechanic. 
+#  encryption mechanic. 
+
+# The encryption mechanic for lowercase alpha characters between a and m will be, shift forward by shift1*shift2 positions
+#  lowercase alpha characters between n and z wil be shifted backward by shift1 + shift2
+# The encryption mechanic for uppercase alpha characters between A and M will be, shift backward by shift1 positions
+#  uppercase alpha characters between N and Z will be shifted forward by shift2*shift2 positions
+
 # Once the encrytption is completed a two outputs will be produced.
 # The encrypted file will be created and an array containing all the no alphabetic characters and the index values from the input  
 # file will be returned to the main program. 
+
 # The encrypted file will the be used as input for the decryption mechanic.
 # Once the decryption mechanic is complete the resulting file will created and compared to the initial input file.
 # A message will be printed to screen indicting the sucess or failure of the decrytion.
@@ -13,7 +20,7 @@
 def main():
                                                                   #input file path aquisition    
     file_path = str(input("Enter file path :")) 
-    print(f'_'*14,'START','_'*103)                                #display formatting to claify file text boundries
+    print(f'_'*14,'START','_'*103)                                 #display formatting to claify file text boundries
     
     with open(file_path,'r') as input_file:                       #open file from file path to read as input_file
         initial_data = input_file.read()                          #create copy of file for encryption 
@@ -34,15 +41,17 @@ def main():
     print(index_list)                                             #print array of index values before encryption for decryption                    
     print(f'_'*15,'END','_'*104)                                  #display formatting to claify file text boundries
 
-def encrypt_file(initial_data, path):                             #def to encrypt a file shifting letter values
-    def find_letter(list,letter):                                 #def to find the index of an alpha char
-        for i in range(len(list)):
+def find_letter(list,letter):                                     #def to find the index of an alpha char
+    for i in range(len(list)):
             if letter == list[i]:
                 index_letter = i
-        return index_letter
-    s1 = 14                                                     #initialise s1 variable for false condition
-    s2 = 14                                                     #initialise s2 variable for false condition
-    while not(s1 <= 12 and s2 <=12):                            #interation to input shift values for encrytion mechanic
+    return index_letter                                 
+  
+def encrypt_file(initial_data, path):                             #def to encrypt a file shifting input to new alpha values
+    
+    s1 = 14                                                       #initialise s1 variable for false condition
+    s2 = 14                                                       #initialise s2 variable for false condition
+    while not(s1 <= 12 and s2 <=12):                              #interation to input shift values for encrytion mechanic
         s1 = int(input("Enter the first amount of alphabetical letter shifts for this encryption :"))
         if not(s1 <=12) or s1 < 0:
             print("Error - Out of shift range enter a number between 1 and 12")
@@ -92,6 +101,7 @@ def encrypt_file(initial_data, path):                             #def to encryp
         encrypted_string.append(new_char)                           #add encrypted value to end of string
         index_list.append(next_index)                               #add current index value or other character to string
     return encrypted_string , index_list                            #return encrypted string
-    
+ 
+  
                                                              
 main()
