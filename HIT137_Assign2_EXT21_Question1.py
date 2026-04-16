@@ -48,13 +48,13 @@ def main():
     print(index_list)                                             #print array of index values before encryption for decryption                    
     print(f'_'*15,'END','_'*104)                                  #display formatting to claify file text boundries
 
-def find_letter(list,letter):                                     #def to find the index of an alpha char
+def find_letter(list,letter):                                     #def to find the index of an alphabetical character
     for i in range(len(list)):
             if letter == list[i]:
                 index_letter = i
     return index_letter                                 
   
-def encrypt_file(initial_data, path):                             #def to encrypt a file shifting input to new alpha values
+def encrypt_file(initial_data, path):                             #def to encrypt a file shifting input to new alphabetical values
     
     s1 = 14                                                       #initialise s1 variable for false condition
     s2 = 14                                                       #initialise s2 variable for false condition
