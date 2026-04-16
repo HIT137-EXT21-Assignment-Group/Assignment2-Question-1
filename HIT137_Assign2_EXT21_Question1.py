@@ -72,6 +72,7 @@ def main():
     print(f'_'*14,'END DECRYPT','_'*90)
 
                                   #verification section
+  
     verification(initial_data, decrypted_data)
 
 def find_letter(list,letter):                                     #def to find the index of an alphabetical character
@@ -133,9 +134,9 @@ def encrypt_file(initial_data, path):                             #def to encryp
             next_index = char                                       #save alphabetical index value or other character
         encrypted_string.append(new_char)                           #add encrypted value to end of string
         index_list.append(next_index)                               #add current index value or other character to string
-    return encrypted_string , index_list                           #return encrypted string
+    return encrypted_string , index_list                            #return encrypted string
  
-def decrypt_file(out_put_data, index_list):                #def to decrypt encrypted file back to original values
+def decrypt_file(out_put_data, index_list):                         #def to decrypt encrypted file back to original values
     
     full_alpha_lower = [chr(i) for i in range(ord('a'), ord('z') + 1)]  #create a string of letters from a to z
     full_alpha_upper = [chr(i) for i in range(ord('A'), ord('Z') + 1)]  #create a string of letters from A to Z
