@@ -17,6 +17,11 @@
 # Once the decryption mechanic is complete the resulting file will be created and compared to the initial input file.
 # A message will be printed to screen indicting the sucess or failure of the decrytion.
 # The program will then END
+#
+# Author        : Richard Larsen
+# Student number: S398988
+# Author        :
+# Subject       :
 #=================================================================================================================================
 def main():
                                                                    #input file path aquisition iterates while not N or no file   
