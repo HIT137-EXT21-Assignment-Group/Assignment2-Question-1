@@ -10,7 +10,7 @@
 #  uppercase alpha characters between N and Z will be shifted forward by shift2*shift2 positions
 
 # Once the encrytption is completed a two outputs will be produced.
-# The encrypted file will be created and an array containing all the no alphabetic characters and the index values from the input  
+# The encrypted file will be created and an array containing all the non-alphabetic characters and the index values from the input  
 # file will be returned to the main program. 
 
 # The encrypted file will the be used as input for the decryption mechanic.
