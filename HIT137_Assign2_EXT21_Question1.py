@@ -14,14 +14,21 @@
 # file will be returned to the main program. 
 
 # The encrypted file will the be used as input for the decryption mechanic.
+# DECRYPTION MECHANIC:
+# The decryption process will reverse the encryption using the stored index values collected during encryption.
+# Each alphabetical character will be restored by mapping its saved index value back to the corresponding letter
+# in the alphabet (a-z or A-Z depending on case).
+# Non-alphabetical characters such as spaces, punctuation, and numbers will remain unchanged throughout the process.
+# The encrypted file will be read and processed character by character to reconstruct the original text.
+# The decrypted output will then be written to a new file and used for verification against the original input file.
 # Once the decryption mechanic is complete the resulting file will be created and compared to the initial input file.
 # A message will be printed to screen indicting the sucess or failure of the decrytion.
 # The program will then END
 #
 #         Author: Richard Larsen
 # Student number: S398988
-#         Author:
-# Student number:
+#         Author: Ishan Panta
+# Student number: S395122
 #=================================================================================================================================
 def main():
                                                                    #input file path aquisition iterates while not N or no file   
@@ -38,7 +45,7 @@ def main():
     print(f'_'*14,'START','_'*103)                                 #display formatting to claify file text boundries
     print(initial_data)
     print(f'_'*15,'END','_'*15)                                   #formatting to claify file text boundries
-    path = file_path.replace('raw_text','write_file')             #alter read path to write path
+    path = file_path.replace('raw_text','encrypted_text')             #alter read path to write path
     print("file path :",path)                                     #print file path for write
     print(f'_'*14,'START','_'*64)                                 #formatting to claify file text boundries 
     encrypt_lst, index_list = encrypt_file(initial_data, path)    #call encrypt function and return two values            
@@ -52,6 +59,22 @@ def main():
     print(f'_'*124)                                               #display formatting to claify file text boundries
     print(index_list)                                             #print array of index values before encryption for decryption                    
     print(f'_'*15,'END','_'*104)                                  #display formatting to claify file text boundries
+
+    #decryption section
+    decrypt_path = file_path.replace('raw_text','decrypted_text')  #create output path for decrypted text
+    print("decrypt file path :",decrypt_path)
+    print(f'_'*14,'START DECRYPT','_'*55)
+    decrypt_lst = decrypt_file(out_put_data, index_list, s1, s2)   #call decryption function
+    with open(decrypt_path,'w') as decrypt_file_write:
+        for item in decrypt_lst:
+            decrypt_file_write.write(f"{item}")
+    with open(decrypt_path,'r') as decrypt_file_read:
+        decrypted_data = decrypt_file_read.read()
+    print(decrypted_data)
+    print(f'_'*15,'END DECRYPT','_'*57)
+
+                                                                   #verification section
+    verification(initial_data, decrypted_data)
 
 def find_letter(list,letter):                                     #def to find the index of an alphabetical character
     for i in range(len(list)):
@@ -112,8 +135,41 @@ def encrypt_file(initial_data, path):                             #def to encryp
             next_index = char                                       #save alphabetical index value or other character
         encrypted_string.append(new_char)                           #add encrypted value to end of string
         index_list.append(next_index)                               #add current index value or other character to string
-    return encrypted_string , index_list                            #return encrypted string
+    return encrypted_string , index_list, s1, s2                            #return encrypted string
  
-  
+def decrypt_file(out_put_data, index_list, s1, s2):                #def to decrypt encrypted file back to original values
+    
+    full_alpha_lower = [chr(i) for i in range(ord('a'), ord('z') + 1)]  #create a string of letters from a to z
+    full_alpha_upper = [chr(i) for i in range(ord('A'), ord('Z') + 1)]  #create a string of letters from A to Z
+    
+    decrypted_string = []                                          #initialise variable to hold decrypted result
+    
+    for i in range(len(out_put_data)):                             #iterate through encrypted data by index
+        char = out_put_data[i]                                     #current encrypted character
+        original_index = index_list[i]                             #original saved index value or character
+        
+        if type(original_index) == int:                            #check original character was alphabetical
+            if char.islower():                                     #current encrypted character is lowercase
+                new_char = full_alpha_lower[original_index]        #restore original lowercase character
+            elif char.isupper():                                   #current encrypted character is uppercase
+                new_char = full_alpha_upper[original_index]        #restore original uppercase character
+            else:
+                new_char = char
+        else:
+            new_char = original_index                              #restore non alphabetical character unchanged
+        
+        decrypted_string.append(new_char)                          #append recovered character
+        
+    return decrypted_string                                        #return decrypted string
+
+
+def verification(initial_data, decrypted_data):                    #def to compare original input with decrypted output
+    
+    print(f'_'*14,'VERIFICATION','_'*58)
+    if initial_data == decrypted_data:                             #compare original and decrypted text
+        print("The decryption was successful ---> decrypted file matches original file <---")
+    else:
+        print("The decryption failed ---> decrypted file does not match original file <---")
+    print(f'_'*14,'END VERIFICATION','_'*54)  
                                                              
 main()
