@@ -45,7 +45,7 @@ def main():
     print(f'_'*14,'START','_'*103)                                 #display formatting to claify file text boundries
     print(initial_data)
     print(f'_'*15,'END','_'*15)                                   #formatting to claify file text boundries
-    path = file_path.replace('raw_text','encrypted_text')             #alter read path to write path
+    path = file_path.replace('raw_text','encrypted_text')         #alter read path to write path
     print("file path :",path)                                     #print file path for write
     print(f'_'*14,'START','_'*64)                                 #formatting to claify file text boundries 
     encrypt_lst, index_list = encrypt_file(initial_data, path)    #call encrypt function and return two values            
@@ -56,15 +56,13 @@ def main():
     with open(path,'r') as write_file:                            #open file for read
         out_put_data = write_file.read()                          #read file
     print(out_put_data)                                           #print encrypted file                             
-    print(f'_'*124)                                               #display formatting to claify file text boundries
-    print(index_list)                                             #print array of index values before encryption for decryption                    
-    print(f'_'*15,'END','_'*104)                                  #display formatting to claify file text boundries
 
-    #decryption section
-    decrypt_path = file_path.replace('raw_text','decrypted_text')  #create output path for decrypted text
+                                  #decryption section
+  
+    decrypt_path = file_path.replace('raw_text','decrypted_text') #create output path for decrypted text
     print("decrypt file path :",decrypt_path)
     print(f'_'*14,'START DECRYPT','_'*86)
-    decrypt_lst = decrypt_file(out_put_data, index_list)   #call decryption function
+    decrypt_lst = decrypt_file(out_put_data, index_list)          #call decryption function
     with open(decrypt_path,'w') as decrypt_file_write:
         for item in decrypt_lst:
             decrypt_file_write.write(f"{item}")
@@ -73,7 +71,7 @@ def main():
     print(decrypted_data)
     print(f'_'*14,'END DECRYPT','_'*90)
 
-                                                                   #verification section
+                                  #verification section
     verification(initial_data, decrypted_data)
 
 def find_letter(list,letter):                                     #def to find the index of an alphabetical character
