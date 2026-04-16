@@ -18,9 +18,9 @@
 # A message will be printed to screen indicting the sucess or failure of the decrytion.
 # The program will then END
 #
-# Author        : Richard Larsen
+#         Author: Richard Larsen
 # Student number: S398988
-# Author        :
+#         Author:
 # Student number:
 #=================================================================================================================================
 def main():
