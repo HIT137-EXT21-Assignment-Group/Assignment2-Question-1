@@ -1,0 +1,13 @@
+Raw text will be
+encrypted 2 ! ! !
+The text can then be
+decrypted #$%    great!!!
+
+This file is called raw_text.txt
+
+TEST FOR A CAPITAL LeTTER
+
+A aaa bbb ccc www xx yy zz
+ZZ YY CC
+
+******&&&@@@******* test 
