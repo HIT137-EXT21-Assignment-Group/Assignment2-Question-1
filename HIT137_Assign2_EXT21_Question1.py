@@ -25,13 +25,11 @@ def main():
             break
         try:
             with open(file_path,'r') as input_file:                #open file from file path to read as input_file
-                initial_data = input_file.read() 
+                initial_data = input_file.read()                   #create copy of file for encryption
                 break
         except FileNotFoundError:
             print("Invalid path ---> Enter valid path <---")    
     print(f'_'*14,'START','_'*103)                                 #display formatting to claify file text boundries
-    
-                            #create copy of file for encryption 
     print(initial_data)
     print(f'_'*15,'END','_'*15)                                   #formatting to claify file text boundries
     path = file_path.replace('raw_text','write_file')             #alter read path to write path
